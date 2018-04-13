@@ -15,7 +15,7 @@
 <hr width='900' size='3'>
 <table width="450" border="0" cellspacing="0" cellpadding="0">
 	<tr>
-		<td align="left"  width="250" height="50" valign="bottom">&nbsp 옵션수 : <font color="#FF0000">2</font></td>
+		<td align="left"  width="250" height="50" valign="bottom">&nbsp 옵션수 : <font color="#FF0000">${size }</font></td>
 		<td align="right" width="200" height="50" valign="bottom">
 			<a href="${pageContext.servletContext.contextPath }/ad/opt_new"><input type="button" value="신규입력"></a> &nbsp
 		</td>
@@ -30,24 +30,17 @@
 		<td width="100" align="center"><font color="#142712">수정/삭제</font></td>
 		<td width="100" align="center"><font color="#142712">소옵션편집</font></td>
 	</tr>
+	<c:forEach var="vo" items="${list }">
 	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="50"  align="center">1</td>
-		<td width="200" align="left">사이즈</td>
+		<td width="50"  align="center">${vo.no }</td>
+		<td width="200" align="left">${vo.title }</td>
 		<td width="100" align="center">
-			<a href="opt_edit.jsp?no1=1">수정</a>/
+			<a href="opt_edit?no=${vo.no }">수정</a>/
 			<a href="#">삭제</a>
 		</td>
-		<td width="100" align="center"><a href="${pageContext.servletContext.contextPath }/ad/opts">소옵션편집</a></td>
+		<td width="100" align="center"><a href="${pageContext.servletContext.contextPath }/ad/opts?no=${vo.no}">소옵션편집</a></td>
 	</tr>
-	<tr bgcolor="#F2F2F2" height="20">
-		<td width="50"  align="center">2</td>
-		<td width="200" align="left">색상</td>
-		<td width="100" align="center">
-			<a href="opt_edit.jsp?no1=2">수정</a>/
-			<a href="#">삭제</a>
-		</td>
-		<td width="100"  align="center"><a href="opts.jsp?no1=2">소옵션편집</a></td>
-	</tr>
+	</c:forEach>
 </table>
 <br>
 </div>

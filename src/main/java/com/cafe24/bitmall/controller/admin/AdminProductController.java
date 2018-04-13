@@ -99,7 +99,7 @@ public class AdminProductController {
 	// 상품 입력
 	@Auth
 	@RequestMapping(value = "/product_new", method = RequestMethod.POST)
-	public String productNew(@ModelAttribute ProductVo vo, Model model,
+	public String productNew(@ModelAttribute ProductVo vo, 
 			@RequestParam("beforefile1") MultipartFile multipartFile1,
 			@RequestParam("beforefile2") MultipartFile multipartFile2,
 			@RequestParam("beforefile3") MultipartFile multipartFile3) {
@@ -133,19 +133,14 @@ public class AdminProductController {
 
 	@Auth
 	@RequestMapping(value = "/search_product", method = RequestMethod.GET)
-	public String search(@RequestParam("sel1") Long tag1, //상품상태(판매중, 판매중지, 품절)
-						 @RequestParam("sel2") String tag2, //아이콘(new,hit,sale)
-						 @RequestParam("sel3") Long tag3, //분류(아우터,상의,하의)
-						 @RequestParam("sel4") Long tag4, //제품이름, 코드
-						 @RequestParam("search_text") String searchText, @RequestParam("page") Long page, Model model) {
+	public String search(@RequestParam("sel1") Long tag1, // 상품상태(판매중, 판매중지, 품절)
+			@RequestParam("sel2") String tag2, // 아이콘(new,hit,sale)
+			@RequestParam("sel3") Long tag3, // 분류(아우터,상의,하의)
+			@RequestParam("sel4") Long tag4, // 제품이름, 코드
+			@RequestParam("search_text") String searchText, @RequestParam("page") Long page, Model model) {
 
-		
-		adminProductService.search(tag1,tag2,tag3,tag4, searchText, model, page);
-		
-		
-		
-		
-		
+		adminProductService.search(tag1, tag2, tag3, tag4, searchText, model, page);
+
 		return "admin/product";
 	}
 

@@ -23,6 +23,8 @@ public class AdminFAQService {
 		List<FAQVo> list = adminfaqDao.getFAQList();
 		model.addAttribute("list", list);
 
+		model.addAttribute("size", list.size());
+
 	}
 
 	public void getFAQ(Long no, Model model) {
@@ -33,12 +35,12 @@ public class AdminFAQService {
 
 	public void modifyFAQ(FAQVo vo) {
 		adminfaqDao.modfiy(vo);
-		
+
 	}
 
 	public void deleteFAQ(Long no) {
 		adminfaqDao.delete(no);
-		
+
 	}
 
 }

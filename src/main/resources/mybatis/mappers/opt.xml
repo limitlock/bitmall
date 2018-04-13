@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="opt">
+
+	<insert id="insertOpt" parameterType="String">
+		<![CDATA[
+			insert into opt values (null, #{title})
+		]]>
+	</insert>
+
+	<select id="getOptList" resultType="optvo">
+		<![CDATA[
+			select no, title
+			from opt
+		]]>
+	</select>
+
+	<select id="getOpt" parameterType="long" resultType="optvo">
+		<![CDATA[
+			select no, title
+			from opt
+			where no = #{no}
+		]]>
+	</select>
+
+	<update id="modifyOpt" parameterType="optvo">
+		<![CDATA[
+			update opt
+			   set title = #{title}
+			 where no = #{no}
+		]]>
+	</update>
+	
+	
+	
+	
+	
+	<select id="getOptsList" resultType="optvo">
+		<![CDATA[
+			select b.no, b.title
+			from  opt a, opts b
+			where a.no = b.opt_no
+			and a.no = #{no}
+		]]>
+	</select>
+	
+
+
+</mapper>

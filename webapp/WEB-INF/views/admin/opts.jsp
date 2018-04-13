@@ -9,6 +9,7 @@
 	<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
 <br>
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
@@ -16,7 +17,7 @@
 	<tr height="50">
 		<td align="left"  width="300" valign="bottom">&nbsp 옵션명 : <font color="#0457A2"><b>사이즈</b></font></td>
 		<td align="right" width="200" valign="bottom">
-			<input type="button" value="신규입력" onclick="javascript:go_new();"> &nbsp
+			<a href="${pageContext.servletContext.contextPath }/ad/opts_new"><input type="button" value="신규입력"></a> &nbsp
 		</td>
 	</tr>
 	<tr><td height="5" colspan="2"></td></tr>
@@ -28,38 +29,18 @@
 		<td width="300" align="center"><font color="#142712">소옵션명</font></td>
 		<td width="100" align="center"><font color="#142712">수정/삭제</font></td>
 	</tr>
+	
+	<c:forEach var="vo" items="${list }">
 	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="100" align="center">1</td>
-		<td width="300" align="left">XL</td>
+		<td width="100" align="center">${vo.no }</td>
+		<td width="300" align="left">${vo.title }</td>
 		<td width="100" align="center">
 			<a href="opts_edit.jsp?no1=1&no2=1">수정</a>/
 			<a href="">삭제</a>
 		</td>
 	</tr>
-	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="100" align="center">2</td>
-		<td width="300" align="left">L</td>
-		<td width="100" align="center">
-			<a href="opts_edit.jsp?no1=1&no2=2">수정</a>/
-			<a href="">삭제</a>
-		</td>
-	</tr>
-	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="100" align="center">3</td>
-		<td width="300" align="left">M</td>
-		<td width="100" align="center">
-			<a href="opts_edit.jsp?no1=1&no2=3">수정</a>/
-			<a href="">삭제</a>
-		</td>
-	</tr>
-	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="100" align="center">4</td>
-		<td width="300" align="left">S</td>
-		<td width="100" align="center">
-			<a href="opts_edit.jsp?no1=1&no2=4">수정</a>/
-			<a href="">삭제</a>
-		</td>
-	</tr>
+	</c:forEach>
 </table>
+</div>
 </body>
 </html>

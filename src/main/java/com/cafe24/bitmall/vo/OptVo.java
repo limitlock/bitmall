@@ -1,10 +1,9 @@
 package com.cafe24.bitmall.vo;
 
-public class OptionVo {
+public class OptVo {
 
 	private Long no;
 	private String title;
-	private Long productNo;
 
 	public Long getNo() {
 		return no;
@@ -22,17 +21,9 @@ public class OptionVo {
 		this.title = title;
 	}
 
-	public Long getProductNo() {
-		return productNo;
-	}
-
-	public void setProductNo(Long productNo) {
-		this.productNo = productNo;
-	}
-
 	@Override
 	public String toString() {
-		return "OptionVo [no=" + no + ", title=" + title + ", productNo=" + productNo + "]";
+		return "OptVo [no=" + no + ", title=" + title + "]";
 	}
 
 }

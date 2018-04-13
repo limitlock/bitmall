@@ -49,22 +49,7 @@ public class AdminController {
 	public String jumun() {
 		return "admin/jumun";
 	}
-	@Auth
-	@RequestMapping(value = "/opt", method = RequestMethod.GET)
-	public String opt() {
-		return "admin/opt";
-	}
-	@Auth
-	@RequestMapping(value = "/opt_new", method = RequestMethod.GET)
-	public String optNew() {
-		return "admin/opt_new";
-	}
 	
-	@Auth
-	@RequestMapping(value = "/opts", method = RequestMethod.GET)
-	public String opts() {
-		return "admin/opts";
-	}
 	
 
 }

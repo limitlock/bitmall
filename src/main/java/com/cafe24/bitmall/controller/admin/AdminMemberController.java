@@ -16,30 +16,33 @@ public class AdminMemberController {
 
 	@Autowired
 	private AdminMemberService adminMemberService;
+
 	// 회원 관리 메인창
 	@Auth
 	@RequestMapping(value = "/member", method = RequestMethod.GET)
-	public String member(Model model, @RequestParam(value = "page",required = true, defaultValue = "1") Long page) {
+	public String member(Model model, @RequestParam(value = "page", required = true, defaultValue = "1") Long page) {
 		adminMemberService.getUserList(model, page);
 		return "admin/member";
 	}
 
+	// 회원 검색
 	@Auth
 	@RequestMapping(value = "/search_user", method = RequestMethod.GET)
 	public String search(@RequestParam("sel1") Long tag, @RequestParam("search_text") String searchText,
 			@RequestParam("page") Long page, Model model) {
-		
+
 		adminMemberService.search(tag, searchText, model, page);
 
 		return "admin/member";
 	}
+
+	// 회원 삭제
 	@Auth
-	@RequestMapping(value="/user_delete", method = RequestMethod.GET)
+	@RequestMapping(value = "/user_delete", method = RequestMethod.GET)
 	public String delete(@RequestParam("no") Long no, @RequestParam("page") Long page) {
 		adminMemberService.deleteUser(no);
-		
-		return "redirect:/ad/member?page="+page;
+
+		return "redirect:/ad/member?page=" + page;
 	}
-	
 
 }

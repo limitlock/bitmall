@@ -117,13 +117,11 @@ $(function(){
 				<td width="100" bgcolor="#CCCCCC" align="center">옵션</td>
 				<td width="700" bgcolor="#F2F2F2">
 				<select id="optNo1" name="optNo1">
-						<option value="0" selected>옵션선택</option>
 						<c:forEach items="${option }" var="vo">
 							<option value="${vo.no }">${vo.title }</option>
 						</c:forEach>
 				</select> &nbsp; &nbsp; 
 				<select id="optNo2" name="optNo2">
-						<option value="0" selected>옵션선택</option>
 						<c:forEach items= "${option }" var="vo">
 							<option value="${vo.no }">${vo.title }</option>
 						</c:forEach>

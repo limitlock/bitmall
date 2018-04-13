@@ -13,11 +13,11 @@
 <br>
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
-<form name="form1" method="post" action="opt_new">
+<form name="form1" method="post" action="opts_new">
 <table width="500" border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
 	<tr> 
 		<td width="100" height="20" bgcolor="#CCCCCC" align="center">
-			<font color="#142712">새 옵션명</font>
+			<font color="#142712">새 소옵션명</font>
 		</td>
 		<td width="400" height="20"  bgcolor="#F2F2F2">
 			<input type="text" name="title" value="" size="20" maxlength="20">
@@ -29,7 +29,7 @@
 	<tr> 
 		<td align="center">
 			<input type="submit" value="등 록 하 기"> &nbsp;&nbsp
-			<a href="opt"><input type="button" value="이 전 화 면"></a>
+			<a href="opts"><input type="button" value="이 전 화 면"></a>
 		</td>
 	</tr>
 </table>
