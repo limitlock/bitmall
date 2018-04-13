@@ -9,6 +9,7 @@
 	<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
 <br>
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
@@ -16,7 +17,7 @@
 	<tr>
 		<td align="left"  width="250" height="50" valign="bottom">&nbsp 옵션수 : <font color="#FF0000">2</font></td>
 		<td align="right" width="200" height="50" valign="bottom">
-			<a href="opt_new.jsp"><input type="button" value="신규입력"></a> &nbsp
+			<a href="${pageContext.servletContext.contextPath }/ad/opt_new"><input type="button" value="신규입력"></a> &nbsp
 		</td>
 	</tr>
 	<tr><td height="5" colspan="2"></td></tr>
@@ -36,7 +37,7 @@
 			<a href="opt_edit.jsp?no1=1">수정</a>/
 			<a href="#">삭제</a>
 		</td>
-		<td width="100" align="center"><a href="opts.jsp?no1=1">소옵션편집</a></td>
+		<td width="100" align="center"><a href="${pageContext.servletContext.contextPath }/ad/opts">소옵션편집</a></td>
 	</tr>
 	<tr bgcolor="#F2F2F2" height="20">
 		<td width="50"  align="center">2</td>
@@ -49,5 +50,6 @@
 	</tr>
 </table>
 <br>
+</div>
 </body>
 </html>

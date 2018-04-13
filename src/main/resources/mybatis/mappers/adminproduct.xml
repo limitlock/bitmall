@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="adminproduct">
+
+
+
+	
+	<select id="getProductList" parameterType="long" resultType="productvo">
+		<![CDATA[
+			select no, category_no as categoryNo, product_code as productCode, title, price, status, icon, discount
+			  from product
+			  order by no desc
+			 limit #{page},5
+		]]>
+	</select>
+	
+	<select id="getProduct" parameterType="long" resultType="productvo">
+		<![CDATA[
+			select no, category_no as categoryNo, product_code as productCode, title, 
+				   maker, price, info, status, icon, file1, file2, file3, 
+				   opt_no1 as optNo1, opt_no2 as optNo2, discount, date_format(reg_date, '%Y-%c-%d') as regDate
+			  from product
+			 where no = #{no}
+		]]>
+	</select>
+	
+	<select id="getCategoryList" resultType="categoryvo">
+		<![CDATA[
+		select no, title
+		  from category
+		]]>
+	</select>
+	
+	<select id="getOptionList" resultType="categoryvo">
+		<![CDATA[
+		select no, title
+		  from opt
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="productvo">
+		<![CDATA[
+		insert into product 
+		values (null, #{categoryNo}, #{productCode}, #{title}, #{maker},
+				#{price}, #{optNo1}, #{optNo2}, #{info}, #{status}, #{icon}, #{discount},
+				#{file1}, #{file2}, #{file3}, now())
+		]]>
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		<![CDATA[
+		delete from product
+		where no = #{no}
+		]]>
+	</delete>
+
+
+	<update id="update" parameterType="productvo">
+		<![CDATA[
+			update product
+			   set category_no = #{categoryNo},
+			   	   product_code = #{productCode},
+			   	   title = #{title},
+			   	   maker = #{maker},
+			   	   price = #{price},
+			   	   opt_no1= #{optNo1},
+			   	   opt_no2= #{optNo2},
+			   	   info = #{info},
+			   	   status = #{status},
+			   	   icon = #{icon},
+			   	   discount = #{discount},
+			   	   file1 = #{file1},
+			   	   file2 = #{file2},
+			   	   file3 = #{file3},
+			   	   reg_date = #{regDate}
+			where no = #{no}
+		]]>
+	</update>
+	
+	<select id="getMax" resultType="long">
+		<![CDATA[
+			select count(no)
+			 from product
+		]]>
+	</select>
+	
+	
+	<select id="searchProduct" parameterType="map" resultType="productvo">
+		<![CDATA[
+			select no, category_no as categoryNo, product_code as productCode, title, price, status, icon, discount
+			 from product
+		]]>
+		<choose>
+			<when test="tag4 == 1">
+				where title like #{searchText}
+			</when>
+			<when test="tag4 == 2">
+				where product_code like #{searchText}
+			</when>
+		</choose>
+		
+		<if test="tag1 > 0">
+			and status = #{tag1}
+		</if>
+		
+		<if test="tag2_number > 0">
+			and icon like #{tag2}
+		</if>
+		
+		<if test="tag3 > 0">
+			and category_no = #{tag3}
+		</if>
+		
+		<![CDATA[
+			order by no desc
+			limit #{page} ,5
+		]]>
+	</select>
+	
+	<select id="getMaxSearchProduct" parameterType="map" resultType="long">
+		<![CDATA[
+			select count(no)
+			 from product
+		]]>
+		<choose>
+			<when test="tag4 == 1">
+				where title like #{searchText}
+			</when>
+			<when test="tag4 == 2">
+				where product_code like #{searchText}
+			</when>
+		</choose>
+		
+		<if test="tag1 > 0">
+			and status = #{tag1}
+		</if>
+		
+		<if test="tag2_number > 0">
+			and icon like #{tag2}
+		</if>
+		
+		<if test="tag3 > 0">
+			and category_no = #{tag3}
+		</if>
+	</select>
+	
+
+</mapper>

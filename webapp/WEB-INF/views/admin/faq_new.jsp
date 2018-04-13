@@ -9,10 +9,12 @@
 	<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
 <br>
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
-<form name="form1" method="post" action="">
+<form name="form1" method="post" action="faq_new">
+<input type="hidden" name="adminNo" value="${authAdmin.no }">
 <table width="600" border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
 	<tr> 
 		<td width="100" height="20" bgcolor="#CCCCCC" align="center">
@@ -36,10 +38,11 @@
 	<tr> 
 		<td align="center">
 			<input type="submit" value="등 록 하 기"> &nbsp;&nbsp
-			<a href="faq.jsp"><input type="button" value="이 전 화 면"></a>
+			<a href="faq"><input type="button" value="이 전 화 면"></a>
 		</td>
 	</tr>
 </table>
 </form>
+</div>
 </body>
 </html>

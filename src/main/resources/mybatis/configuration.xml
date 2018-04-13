@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="uservo" type="com.cafe24.bitmall.vo.UserVo" />
+		<typeAlias alias="adminvo" type="com.cafe24.bitmall.vo.AdminVo" />
+		<typeAlias alias="categoryvo" type="com.cafe24.bitmall.vo.CategoryVo" />
+		<typeAlias alias="productvo" type="com.cafe24.bitmall.vo.ProductVo" />
+		<typeAlias alias="faqvo" type="com.cafe24.bitmall.vo.FAQVo" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="mybatis/mappers/user.xml" />
+		<mapper resource="mybatis/mappers/admin.xml" />
+		<mapper resource="mybatis/mappers/adminproduct.xml" />
+		<mapper resource="mybatis/mappers/faq.xml" />
+	</mappers>
+</configuration>

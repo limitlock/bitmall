@@ -17,11 +17,12 @@
 	              					<div align='center'> 
 	                					<table width='660' border='0' cellspacing='0' cellpadding='2'>
 	                  						<tr> 
-							                    <td width='100'><font color='#0457A2'>▶ </font><a href='member'><font color='#0457A2'>회원관리</font></a></td>
-							                    <td width='100'><font color='#0457A2'>▶ </font><a href='product'><font color='#0457A2'>상품관리</font></a></td>
+							                    <td width='100'><font color='#0457A2'>▶ </font><a href='member?page=1'><font color='#0457A2'>회원관리</font></a></td>
+							                    <td width='100'><font color='#0457A2'>▶ </font><a href='product?page=1'><font color='#0457A2'>상품관리</font></a></td>
 							                    <td width='100'><font color='#0457A2'>▶ </font><a href='jumun'><font color='#0457A2'>주문관리</font></a></td>
 							                    <td width='100'><font color='#0457A2'>▶ </font><a href='opt'><font color='#0457A2'>옵션관리</font></a></td>
 							                    <td width='100'><font color='#0457A2'>▶ </font><a href='faq'><font color='#0457A2'>FAQ관리</font></a></td>
+							                    <td width='100'><font color='#0457A2'>▶ </font><a href='${pageContext.servletContext.contextPath }/user/member_logout'><font color='#0457A2'>관리자 로그아웃</font></a></td>
 						                  	</tr>
 	                					</table>
 	              					</div>

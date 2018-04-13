@@ -123,7 +123,7 @@
 						<table border="0" cellpadding="0" cellspacing="0" width="370" class="cmfont">
 							<tr>
 								<td height="70" align="center">
-									<a href="#"><img src="${pageContext.servletContext.contextPath }/assets/images/b_order.gif" border="0" align="absmiddle"></a>&nbsp;&nbsp;&nbsp;
+									<a href="${pageContext.servletContext.contextPath }/order"><img src="${pageContext.servletContext.contextPath }/assets/images/b_order.gif" border="0" align="absmiddle"></a>&nbsp;&nbsp;&nbsp;
 									<a href="#"><img src="${pageContext.servletContext.contextPath }/assets/images/b_cart.gif"  border="0" align="absmiddle"></a>
 								</td>
 							</tr>

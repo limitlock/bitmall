@@ -59,7 +59,7 @@
 									<table border="0" cellpadding="0" cellspacing="0" width="635" class="cmfont">
 										<tr>
 											<td height="30">
-												<font color="898989">수정완료</font><br><br><br>
+												<font size="5px" color="898989"><strong>다시 로그인 해주세요.<br>수정완료</strong></font><br><br><br>
 											</td>
 										</tr>
 									</table>

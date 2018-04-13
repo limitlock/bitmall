@@ -7,23 +7,53 @@
 	<title>쇼핑몰 관리자 홈페이지</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
+	<script type="text/javascript">
+
+	function modifyAlert(){
+		alert("[회원 정보 수정]은 차후 업데이트 예정");
+	}
+	
+	</script>
+	<style type="text/css">
+		
+		div.pager {
+			width:100%;
+			text-align:center;
+		}
+		div.pager  ul {
+			height:20px;
+			margin:10px auto;
+		}
+		div.pager  ul li 		  { display:inline-block; margin:5px 0; width:20px ; font-weight:bold; color:#ddd }
+		div.pager  ul li.selected { text-decoration: underline; color:#f40808 }
+		div.pager  ul li a,
+		div.pager  ul li a:visited,
+		div.pager  ul li a:link,
+		div.pager  ul li a:active { text-decoration: none; color:#555 }
+		div.pager  ul li a:hover { text-decoration: none; color:#f00 }
+	
+	</style>
 </head>
 <body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<input type="hidden" name="no" value="${authUser.no}">
+<div align="center">
 <br>
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
+
+
 <table width="800" border="0" cellspacing="0" cellpadding="0">
-	<form name="form1" method="get" action="">
+	<form name="form1" method="get" action="search_user">
+	<input type="hidden" name="page" value="${param.page }">
 	<tr height="40">
-		<td width="200" valign="bottom">&nbsp 회원수 : <font color="#FF0000">20</font></td>
+		<td width="200" valign="bottom">&nbsp 회원수 : <font color="#FF0000">${max}</font></td>
 		<td width="200">&nbsp</td>
 		<td width="350" align="right" valign="bottom">
 			<select name="sel1" class="combo1">
 				<option value="1" >이름</option>
 				<option value="2" >아이디</option>
 			</select>
-			<input type="text" name="text1" size="15" value="">&nbsp
+			<input type="text" name="search_text" size="15" value="">&nbsp
 		</td>
 		<td width="50" valign="bottom">
 			<input type="submit" value="검색">&nbsp
@@ -32,6 +62,8 @@
 	<tr><td height="5" colspan="4"></td></tr>
 	</form>
 </table>
+
+
 <table width="800" border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
 	<tr bgcolor="#CCCCCC" height="23"> 
 		<td width="100" align="center">ID</td>
@@ -39,36 +71,20 @@
 		<td width="100" align="center">전화</td>
 		<td width="100" align="center">핸드폰</td>
 		<td width="200" align="center">E-Mail</td>
-		<td width="100" align="center">회원구분</td>
 		<td width="100" align="center">수정/삭제</td>
 	</tr>
-	
-	
-	<tr bgcolor="#F2F2F2" height="23">	
-		<td width="100">&nbsp id1</td>	
-		<td width="100">&nbsp 홍길동</td>	
-		<td width="100">&nbsp 02 -123-1234</td>	
-		<td width="100">&nbsp 011-123-1234</td>	
-		<td width="200">&nbsp abcd@abcd.com</td>	
-		<td width="100" align="center">회원</td>	
-		<td width="100" align="center">
-			<a href="#">수정</a>/
-			<a href="#">삭제</a>
-		</td>
-	</tr>
-	
+	<c:set var="count" value="${fn:length(list) }" />
 	<c:forEach var="vo" items="${list }" varStatus="status">
 	
 	<tr bgcolor="#F2F2F2" height="23">	
 		<td width="100">&nbsp ${vo.id }</td>	
-		<td width="100">&nbsp ${vo.name }</td>	
-		<td width="100">&nbsp ${vo.phone_number }</td>	
-		<td width="100">&nbsp ${vo.handphone }</td>	
+		<td width="100">&nbsp ${vo.name }</td>
+		<td width="100">&nbsp ${vo.tel }</td>	
+		<td width="100">&nbsp ${vo.phone }</td>	
 		<td width="200">&nbsp ${vo.email }</td>	
-		<td width="100" align="center">${vo.type }</td>	
 		<td width="100" align="center">
-			<a href="#">수정</a>/
-			<a href="#">삭제</a>
+		<a href="#" onclick="modifyAlert();">수정</a>/
+		<a href="user_delete?no=${vo.no }&page=${param.page}">삭제</a>
 		</td>
 	</tr>
 	</c:forEach>
@@ -77,14 +93,79 @@
 <table width="800" border="0" cellpadding="0" cellspacing="0">
 	<tr>
 		<td height="30" class="cmfont" align="center">
-			<img src="${pageContext.servletContext.contextPath }/assets/images/admin/i_prev.gif" align="absmiddle" border="0"> 
-			<font color="#FC0504"><b>1</b></font>&nbsp;
-			<a href="member.jsp?page=2"><font color="#7C7A77">[2]</font></a>&nbsp;
-			<a href="member.jsp?page=3"><font color="#7C7A77">[3]</font></a>&nbsp;
-			<img src="${pageContext.servletContext.contextPath }/assets/images/admin/i_next.gif" align="absmiddle" border="0">
+		<c:choose>
+			<c:when test="${max == 0}">
+				<c:set var="getMax" value = "${max+1 }"/>
+			</c:when>
+			<c:otherwise>
+				<c:set var="getMax" value = "${max }"/>
+			</c:otherwise>
+		</c:choose>
+		<fmt:parseNumber var="totalPage" value="${(((getMax-1)/5)+1)}"  integerOnly="true" />
+						<c:choose>
+							<c:when test="${param.page > 5 }">
+								<fmt:parseNumber var="startPage"
+									value="${((param.page-1)/totalPage) * totalPage + 1} " integerOnly="true" />
+							</c:when>
+							<c:otherwise>
+								<fmt:parseNumber var="startPage"
+									value="${((1-1)/totalPage) * totalPage + 1} " integerOnly="true" />
+							</c:otherwise>
+						</c:choose>
+						
+						<c:choose>
+							<c:when test="${endPage > totalPage }">
+								<fmt:parseNumber var="endPage" value="${((startPage + totalPage ) -1) } " integerOnly="true" />
+							</c:when>
+							<c:otherwise>
+								<fmt:parseNumber var="endPage" value="${totalPage}" integerOnly="true" />
+							</c:otherwise>
+						</c:choose>
+						<div id="underpoint" class="pager">
+						<ul>
+						<c:choose>
+							<c:when test="${startPage <= param.page && param.page != 1}">
+								<a href="member?page=${(param.page-1) }" ><img src="${pageContext.servletContext.contextPath }/assets/images/admin/i_prev.gif" align="absmiddle" border="0"> 
+								</a>
+							</c:when>
+							<c:otherwise>
+								<img src="${pageContext.servletContext.contextPath }/assets/images/admin/i_prev.gif" align="absmiddle" border="0"> 
+							</c:otherwise>
+						</c:choose>
+						
+						<c:forEach begin="${startPage }" end="${startPage+4}" step="1" var="i" varStatus="status">
+						
+							<c:choose>
+								<c:when test="${totalPage >= i }">	
+									<c:choose>
+										<c:when test="${param.page == i }">
+											<li><font color="red">[${i }]</font></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="member?page=${i }">[${i }]</a></li>
+										</c:otherwise>
+									</c:choose>				
+								</c:when>
+								<c:otherwise>
+									<li><font color="#cdcdcd">[${i }]</font></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
+						<c:choose>
+							<c:when test="${totalPage > param.page  }">
+								<a href="member?page=${(param.page+1) }"><img src="${pageContext.servletContext.contextPath }/assets/images/admin/i_next.gif" align="absmiddle" border="0">
+								</a>
+							</c:when>
+							<c:when test="${totalPage <= param.page }">
+									<img src="${pageContext.servletContext.contextPath }/assets/images/admin/i_next.gif" align="absmiddle" border="0">
+							</c:when>
+						</c:choose>
+						</ul>
+				</div>
 		</td>
 	</tr>
 </table>
-</center>
+</div>
 </body>
 </html>

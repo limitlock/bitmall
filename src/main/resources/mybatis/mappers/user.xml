@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="user">
+	<insert id="insert" parameterType="uservo">
+		<![CDATA[
+		insert 
+		  into users
+	    values (null, #{id}, #{password}, #{name}, #{birthday}, 
+	    		#{tel}, #{phone}, #{zip}, #{address}, #{email})
+		]]>
+	</insert>
+
+
+	<select id="getByIdAndPassword" parameterType="uservo"
+		resultType="uservo">
+		<![CDATA[
+		select no, id, password ,name, birthday, email, address, tel, phone, zip
+		  from users
+		 where id = #{id } 
+	 	   and password = #{password }
+		]]>
+	</select>
+
+	<select id="getById" parameterType="uservo" resultType="uservo">
+		<![CDATA[
+		select id
+		  from users
+		 where id = #{id }
+		]]>
+	</select>
+
+
+	<select id="getUserList" parameterType="long" resultType="uservo">
+		<![CDATA[
+			select no, id, name, email, ifnull(case char_length(phone) 
+												when '11' 
+								                then concat(left(phone,3),'-',substring(phone,4,4),'-',right(phone,4)) 
+								                when '10'
+								                then concat(left(phone,3),'-',substring(phone,4,3),'-',right(phone,4)) 
+							                end,'존재하지않는 형식') as phone,
+							                
+							        ifnull(case left(tel,2)
+											when '02' then
+												case char_length(tel)
+													when '10' 
+													then concat('02','-',substring(tel,3,4),'-',right(phone,4)) 
+													when '9'
+													then concat('02','-',substring(tel,3,3),'-',right(phone,4)) 
+												end
+											else
+												case char_length(tel)
+													when '11' 
+													then concat(left(tel,3),'-',substring(tel,4,4),'-',right(tel,4)) 
+													when '10'
+													then concat(left(tel,3),'-',substring(tel,4,3),'-',right(tel,4)) 
+													when '8'
+							                        then concat(left(tel,4),'-',substring(tel,4,4))
+												end
+											end, '존재하지않는 형식') as tel
+			from users
+			limit #{page},5
+		]]>
+	</select>
+
+	<select id="searchById" parameterType="map" resultType="uservo">
+		<![CDATA[
+			select no, name , id,email,ifnull(case char_length(phone) 
+												when '11' 
+								                then concat(left(phone,3),'-',substring(phone,4,4),'-',right(phone,4)) 
+								                when '10'
+								                then concat(left(phone,3),'-',substring(phone,4,3),'-',right(phone,4)) 
+							                end,'존재하지않는 형식') as phone,
+							                
+							        ifnull(case left(tel,2)
+											when '02' then
+												case char_length(tel)
+													when '10' 
+													then concat('02','-',substring(tel,3,4),'-',right(phone,4)) 
+													when '9'
+													then concat('02','-',substring(tel,3,3),'-',right(phone,4)) 
+												end
+											else
+												case char_length(tel)
+													when '11' 
+													then concat(left(tel,3),'-',substring(tel,4,4),'-',right(tel,4)) 
+													when '10'
+													then concat(left(tel,3),'-',substring(tel,4,3),'-',right(tel,4)) 
+													when '8'
+							                        then concat(left(tel,4),'-',substring(tel,4,4))
+												end
+											end, '존재하지않는 형식') as tel
+			from users
+			where id like #{searchText}
+			order by no desc
+			limit #{page} ,5
+		]]>
+	</select>
+
+	<select id="searchByName" parameterType="map" resultType="uservo">
+		<![CDATA[
+			select no, name , id,email,ifnull(case char_length(phone) 
+												when '11' 
+								                then concat(left(phone,3),'-',substring(phone,4,4),'-',right(phone,4)) 
+								                when '10'
+								                then concat(left(phone,3),'-',substring(phone,4,3),'-',right(phone,4)) 
+							                end,'존재하지않는 형식') as phone,
+							                
+							        ifnull(case left(tel,2)
+											when '02' then
+												case char_length(tel)
+													when '10' 
+													then concat('02','-',substring(tel,3,4),'-',right(phone,4)) 
+													when '9'
+													then concat('02','-',substring(tel,3,3),'-',right(phone,4)) 
+												end
+											else
+												case char_length(tel)
+													when '11' 
+													then concat(left(tel,3),'-',substring(tel,4,4),'-',right(tel,4)) 
+													when '10'
+													then concat(left(tel,3),'-',substring(tel,4,3),'-',right(tel,4)) 
+													when '8'
+							                        then concat(left(tel,4),'-',substring(tel,4,4))
+												end
+											end, '존재하지않는 형식') as tel
+			from users
+			where name like #{searchText}
+			order by no desc
+			limit #{page} ,5
+		]]>
+	</select>
+
+	<select id="getMax" resultType="long">
+		<![CDATA[
+			select count(no)
+			from users
+		]]>
+	</select>
+	
+	<select id="getMaxSearchByName" parameterType="string" resultType="long">
+		<![CDATA[
+			select count(no)
+			from users
+			where name like #{name}
+		]]>
+	</select>
+	
+	<select id="getMaxSearchById" parameterType="string" resultType="long">
+		<![CDATA[
+			select count(no)
+			from users
+			where id like #{id}
+		]]>
+	</select>
+
+
+
+
+	<update id="userModify" parameterType="uservo">
+		<![CDATA[
+		update users
+		   set tel = #{tel},
+		   	   address = #{address},
+		   	   zip =#{zip},
+		   	   phone = #{phone},
+		   	   password = #{password},
+		   	   email = #{email}
+		 where no = #{no}	
+		]]>
+	</update>
+
+
+	<delete id="delete" parameterType="long">
+		<![CDATA[
+		delete from users
+		where no = #{no}
+		]]>
+	</delete>
+
+
+
+</mapper>

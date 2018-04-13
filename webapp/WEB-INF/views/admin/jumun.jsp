@@ -9,6 +9,7 @@
 	<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
 </head>
 <body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div align="center">
 <br>
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
@@ -238,5 +239,6 @@
 		</td>
 	</tr>
 </table>
+</div>
 </body>
 </html>

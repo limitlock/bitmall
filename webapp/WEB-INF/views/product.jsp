@@ -76,13 +76,13 @@
 						<table border="0" cellpadding="0" cellspacing="0" width="100" class="cmfont">
 							<tr> 
 								<td align="center"> 
-									<a href="product_detail.jsp?no=109469"><img src="${pageContext.servletContext.contextPath }/assets/images/product/0000_s.jpg" width="120" height="140" border="0"></a>
+									<a href="${pageContext.servletContext.contextPath }/product_detail?no=1"><img src="${pageContext.servletContext.contextPath }/assets/images/product/0000_s.jpg" width="120" height="140" border="0"></a>
 								</td>
 							</tr>
 							<tr><td height="5"></td></tr>
 							<tr> 
 								<td height="20" align="center">
-									<a href="product_detail.jsp?no=1"><font color="444444">메뉴1 상품</font></a>&nbsp; 
+									<a href="${pageContext.servletContext.contextPath }/product_detail?no=1"><font color="444444">메뉴1 상품</font></a>&nbsp; 
 									<img src="${pageContext.servletContext.contextPath }/assets/images/i_hit.gif" align="absmiddle" vspace="1"> <img src="${pageContext.servletContext.contextPath }/assets/images/i_new.gif" align="absmiddle" vspace="1"> 
 								</td>
 							</tr>

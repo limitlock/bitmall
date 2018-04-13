@@ -11,7 +11,7 @@
 		<td> 
 			<table width="959" border="0" cellspacing="0" cellpadding="0">
 				<tr> 
-					<td valign="top"><a href="index.jsp"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_logo.gif" border="0"></a></td>
+					<td valign="top"><a href="${pageContext.servletContext.contextPath }/"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_logo.gif" border="0"></a></td>
 					<td width="28"></td>
 					<td> 
 						<table border="0" cellspacing="0" cellpadding="0">
@@ -19,11 +19,11 @@
 								<td> 
 									<table border="0" cellspacing="0" cellpadding="0">
 										<tr> 
-											<td><a href="company.jsp"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_menu01.gif" border="0"></a></td>
+											<td><a href="${pageContext.servletContext.contextPath }/company"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_menu01.gif" border="0"></a></td>
 											<td><img src="${pageContext.servletContext.contextPath }/assets/images/footer_line.gif"></td>
-											<td><a href="useinfo.jsp"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_menu02.gif" border="0"></a></td>
+											<td><a href="${pageContext.servletContext.contextPath }/useinfo"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_menu02.gif" border="0"></a></td>
 											<td><img src="${pageContext.servletContext.contextPath }/assets/images/footer_line.gif"></td>
-											<td><a href="policy.jsp"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_menu03.gif" border="0"></a></td>
+											<td><a href="${pageContext.servletContext.contextPath }/policy"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_menu03.gif" border="0"></a></td>
 										</tr>
 									</table>
 								</td>
@@ -37,7 +37,7 @@
 						<table border="0" cellspacing="0" cellpadding="0">
 							<tr> 
 								<td align="right">
-										<a href="index.jsp"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_home.gif" border="0"></a>&nbsp
+										<a href="/index.jsp"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_home.gif" border="0"></a>&nbsp
 										<a href="#top"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_top.gif" border="0"></a>
 								</td>
 							</tr>
@@ -46,7 +46,7 @@
 									<table border="0" cellspacing="0" cellpadding="0">
 										<tr> 
 											<td><A HREF="http://www.ftc.go.kr/" target="_blank"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_pic1.gif" border="0"></A></td>
-											<td><img src="footer_line.gif" width="3" height="42"></td>
+											<td><img src="${pageContext.servletContext.contextPath }/assets/images/footer_line.gif" width="3" height="42"></td>
 											<td><A HREF="http://www.sgic.co.kr/" target="_blank"><img src="${pageContext.servletContext.contextPath }/assets/images/footer_pic2.gif" border="0"></a></td>
 										</tr>
 									</table>

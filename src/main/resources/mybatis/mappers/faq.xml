@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="faq">
+	<insert id="insert" parameterType="faqvo">
+		<![CDATA[
+			insert into faq
+			values (null, #{title}, #{content}, #{adminNo})
+		]]>
+	</insert>
+
+
+	<select id="getFAQList" resultType="faqvo">
+		<![CDATA[
+			select no, title
+			from faq
+		]]>
+	</select>
+
+	<select id="getFAQ" parameterType="long" resultType="faqvo">
+		<![CDATA[
+			select no, title, content
+			from faq
+			where no = #{no}
+		]]>
+	</select>
+
+	<update id="modify" parameterType="faqvo">
+		<![CDATA[
+			update faq
+			   set title = #{title},
+			   	   content = #{content}
+			 where no = #{no}
+		]]>
+	</update>
+
+	<delete id="delete" parameterType="long">
+		<![CDATA[
+			delete from faq
+			where no = #{no}
+		]]>
+	</delete>
+
+
+
+</mapper>
