@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cafe24.bitmall.vo.CategoryVo;
-import com.cafe24.bitmall.vo.OptionVo;
+import com.cafe24.bitmall.vo.OptVo;
 import com.cafe24.bitmall.vo.ProductVo;
 import com.cafe24.bitmall.vo.UserVo;
 
@@ -23,7 +23,7 @@ public class AdminProductDao {
 		return sqlSession.selectList("adminproduct.getCategoryList");
 	}
 
-	public List<OptionVo> getOptionList() {
+	public List<OptVo> getOptionList() {
 		return sqlSession.selectList("adminproduct.getOptionList");
 	}
 

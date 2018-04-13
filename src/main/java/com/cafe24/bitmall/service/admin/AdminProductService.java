@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.cafe24.bitmall.repository.admin.AdminProductDao;
 import com.cafe24.bitmall.vo.CategoryVo;
-import com.cafe24.bitmall.vo.OptionVo;
+import com.cafe24.bitmall.vo.OptVo;
 import com.cafe24.bitmall.vo.ProductVo;
 import com.cafe24.bitmall.vo.UserVo;
 
@@ -33,7 +33,7 @@ public class AdminProductService {
 	}
 
 	public void getOption(Model model) {
-		List<OptionVo> list = adminProductDao.getOptionList();
+		List<OptVo> list = adminProductDao.getOptionList();
 		model.addAttribute("option", list);
 
 	}
