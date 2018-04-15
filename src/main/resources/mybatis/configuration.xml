@@ -8,6 +8,7 @@
 		<typeAlias alias="productvo" type="com.cafe24.bitmall.vo.ProductVo" />
 		<typeAlias alias="faqvo" type="com.cafe24.bitmall.vo.FAQVo" />
 		<typeAlias alias="optvo" type="com.cafe24.bitmall.vo.OptVo" />
+		<typeAlias alias="optsvo" type="com.cafe24.bitmall.vo.OptsVo" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />
@@ -15,5 +16,6 @@
 		<mapper resource="mybatis/mappers/adminproduct.xml" />
 		<mapper resource="mybatis/mappers/faq.xml" />
 		<mapper resource="mybatis/mappers/opt.xml" />
+		<mapper resource="mybatis/mappers/main.xml" />
 	</mappers>
 </configuration>

@@ -1,5 +1,8 @@
 package com.cafe24.bitmall.controller.admin;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -65,9 +68,9 @@ public class AdminOptController {
 	// 소옵션 메인창
 	@Auth
 	@RequestMapping(value = "/opts", method = RequestMethod.GET)
-	public String opts(@RequestParam("no") Long no, Model model) {
+	public String opts(@RequestParam("no") Long no, @RequestParam("title") String title, Model model) {
 		adminoptService.getOptsList(no, model);
-		
+
 		return "admin/opts";
 	}
 
@@ -81,10 +84,45 @@ public class AdminOptController {
 	// 소옵션 추가
 	@Auth
 	@RequestMapping(value = "/opts_new", method = RequestMethod.POST)
-	public String optsNew(@ModelAttribute OptsVo vo) {
-		adminoptService.insertOpts(vo);
+	public String optsNew(@RequestParam("optNo") Long optNo, @RequestParam("optTitle") String optTitle,
+			@RequestParam("title") String title) throws UnsupportedEncodingException {
+		adminoptService.insertOpts(optNo, title);
 
-		return "redirect:/ad/opts";
+		optTitle = URLEncoder.encode(optTitle, "UTF-8");
+
+		return "redirect:/ad/opts?no=" + optNo + "&title=" + optTitle;
+	}
+
+	// 소옵션 수정창
+	@Auth
+	@RequestMapping(value = "/opts_edit", method = RequestMethod.GET)
+	public String optsEdit(@RequestParam("no") Long no, @RequestParam("optNo") Long optNo,
+			@RequestParam("index") Long index, Model model) {
+		adminoptService.getOpts(no, optNo, model);
+
+		return "admin/opts_edit";
+	}
+
+	// 소옵션 수정
+	@Auth
+	@RequestMapping(value = "/opts_edit", method = RequestMethod.POST)
+	public String optsEdit(@RequestParam("optNo") Long optNo, @RequestParam("optTitle") String title,   @ModelAttribute OptsVo vo) throws UnsupportedEncodingException {
+
+		adminoptService.modifyOpts(vo);
+		title = URLEncoder.encode(title, "UTF-8");
+
+		return "redirect:/ad/opts?no=" + optNo + "&title=" + title;
+	}
+
+	// 소옵션 삭제
+	@Auth
+	@RequestMapping(value = "/opts_delete", method = RequestMethod.GET)
+	public String optsDelete(@RequestParam("no") Long no, @RequestParam("optNo") Long optNo,
+			@RequestParam("title") String title) throws UnsupportedEncodingException {
+		adminoptService.deleteOpts(no);
+		title = URLEncoder.encode(title, "UTF-8");
+
+		return "redirect:/ad/opts?no=" + optNo + "&title=" + title;
 	}
 
 }

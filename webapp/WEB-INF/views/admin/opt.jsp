@@ -30,15 +30,30 @@
 		<td width="100" align="center"><font color="#142712">수정/삭제</font></td>
 		<td width="100" align="center"><font color="#142712">소옵션편집</font></td>
 	</tr>
-	<c:forEach var="vo" items="${list }">
+	<c:forEach var="vo" items="${list }" varStatus="index">
 	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="50"  align="center">${vo.no }</td>
+		<td width="50"  align="center">${index.count }</td>
 		<td width="200" align="left">${vo.title }</td>
 		<td width="100" align="center">
-			<a href="opt_edit?no=${vo.no }">수정</a>/
-			<a href="#">삭제</a>
+		<c:choose>
+			<c:when test="${vo.no == 1 }">
+				<a href="#">불가</a>
+			</c:when>
+			<c:otherwise>	
+				<a href="opt_edit?no=${vo.no }">수정</a>/
+				<a href="#">삭제</a>
+			</c:otherwise>
+		</c:choose>
 		</td>
-		<td width="100" align="center"><a href="${pageContext.servletContext.contextPath }/ad/opts?no=${vo.no}">소옵션편집</a></td>
+		<c:choose>
+			<c:when test="${vo.no == 1 }">
+				<td width="100" align="center"><a href="#">없음</a></td>
+			</c:when>
+			<c:otherwise>	
+				<td width="100" align="center"><a href="${pageContext.servletContext.contextPath }/ad/opts?no=${vo.no}&title=${vo.title}">소옵션편집</a></td>
+			</c:otherwise>
+		</c:choose>
+		
 	</tr>
 	</c:forEach>
 </table>

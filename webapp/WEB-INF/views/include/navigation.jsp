@@ -12,7 +12,23 @@
 							<tr>
 								<td bgcolor="#FFFFFF">
 									<table width="100%"  border="0" cellspacing="0" cellpadding="0">
-										<tr><td><a href="${pageContext.servletContext.contextPath }/product?menu=1"><img src="${pageContext.servletContext.contextPath }/assets/images/main_menu01_off.gif" width="176" height="30" border="0"  onmouseover="img_change('on')" onmouseout="img_change('off')"></a></td></tr>
+										<tr><td><a href="${pageContext.servletContext.contextPath }/product?categoryNo=1&page=1"><img src="${pageContext.servletContext.contextPath }/assets/images/main_menu_outer_off.gif" width="176" height="30" border="0"></a></td></tr>
+									</table>
+								</td>
+							</tr>
+							
+							<tr>
+								<td bgcolor="#FFFFFF">
+									<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+										<tr><td><a href="${pageContext.servletContext.contextPath }/product?categoryNo=2&page=1"><img src="${pageContext.servletContext.contextPath }/assets/images/main_menu_top_off.gif" width="176" height="30" border="0"  onmouseover="img_change('on')" onmouseout="img_change('off')"></a></td></tr>
+									</table>
+								</td>
+							</tr>
+							
+							<tr>
+								<td bgcolor="#FFFFFF">
+									<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+										<tr><td><a href="${pageContext.servletContext.contextPath }/product?categoryNo=3&page=1"><img src="${pageContext.servletContext.contextPath }/assets/images/main_menu_bottom_off.gif" width="176" height="30" border="0"  onmouseover="img_change('on')" onmouseout="img_change('off')"></a></td></tr>
 									</table>
 								</td>
 							</tr>

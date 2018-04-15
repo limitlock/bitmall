@@ -23,7 +23,7 @@ public class AdminOptService {
 	public void getOptList(Model model) {
 		List<OptVo> list = adminoptDao.getOptList();
 		model.addAttribute("list", list);
-		model.addAttribute("size",list.size());
+		model.addAttribute("size", list.size());
 
 	}
 
@@ -34,17 +34,33 @@ public class AdminOptService {
 
 	public void modifyOpt(OptVo vo) {
 		adminoptDao.modifyOpt(vo);
-		
+
 	}
 
-	public void insertOpts(OptsVo vo) {
-		adminoptDao.insertOpts(vo);
-		
+	public void insertOpts(Long optNo, String title) {
+		adminoptDao.insertOpts(optNo, title);
+
 	}
 
 	public void getOptsList(Long no, Model model) {
 		List<OptsVo> list = adminoptDao.getOptsList(no);
+
 		model.addAttribute("list", list);
+
+	}
+
+	public void deleteOpts(Long no) {
+		adminoptDao.deleteOpts(no);
+	}
+
+	public void getOpts(Long no, Long optNo, Model model) {
+		List<OptsVo> list = adminoptDao.getOpts(no, optNo);
+		model.addAttribute("list", list);
+
+	}
+
+	public void modifyOpts(OptsVo vo) {
+		adminoptDao.modifyOpts(vo);
 		
 	}
 

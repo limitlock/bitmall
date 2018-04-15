@@ -14,6 +14,8 @@
 <jsp:include page="/WEB-INF/views/include/admin-menu.jsp"/>
 <hr width='900' size='3'>
 <form name="form1" method="post" action="opts_new">
+<input type="hidden" name="optNo" value="${param.no }">
+<input type="hidden" name="optTitle" value="${param.title }">
 <table width="500" border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
 	<tr> 
 		<td width="100" height="20" bgcolor="#CCCCCC" align="center">

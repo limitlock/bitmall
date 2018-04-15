@@ -15,9 +15,9 @@
 <hr width='900' size='3'>
 <table width="450" border="0" cellspacing="0" cellpadding="0">
 	<tr height="50">
-		<td align="left"  width="300" valign="bottom">&nbsp 옵션명 : <font color="#0457A2"><b>사이즈</b></font></td>
+		<td align="left"  width="300" valign="bottom">&nbsp 옵션명 : <font color="#0457A2"><b>${param.title}</b></font></td>
 		<td align="right" width="200" valign="bottom">
-			<a href="${pageContext.servletContext.contextPath }/ad/opts_new"><input type="button" value="신규입력"></a> &nbsp
+			<a href="${pageContext.servletContext.contextPath }/ad/opts_new?no=${param.no}&title=${param.title}"><input type="button" value="신규입력"></a> &nbsp
 		</td>
 	</tr>
 	<tr><td height="5" colspan="2"></td></tr>
@@ -30,13 +30,13 @@
 		<td width="100" align="center"><font color="#142712">수정/삭제</font></td>
 	</tr>
 	
-	<c:forEach var="vo" items="${list }">
+	<c:forEach var="vo" items="${list }" varStatus="index">
 	<tr bgcolor="#F2F2F2" height="20">	
-		<td width="100" align="center">${vo.no }</td>
+		<td width="100" align="center">${index.count}</td>
 		<td width="300" align="left">${vo.title }</td>
 		<td width="100" align="center">
-			<a href="opts_edit.jsp?no1=1&no2=1">수정</a>/
-			<a href="">삭제</a>
+			<a href="opts_edit?no=${vo.no }&optNo=${param.no}&title=${param.title}&index=${index.count}">수정</a>/
+			<a href="opts_delete?no=${vo.no }&optNo=${param.no }&title=${param.title}">삭제</a> 
 		</td>
 	</tr>
 	</c:forEach>

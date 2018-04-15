@@ -20,6 +20,7 @@ public class AdminMemberService {
 
 		Long max = adminMemberDao.getMax();
 		model.addAttribute("max", max);
+		
 		model.addAttribute("size", list.size());
 		model.addAttribute("list", list);
 

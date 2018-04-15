@@ -7,6 +7,7 @@
 	<title>쇼핑몰 관리자 홈페이지</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
+	<link href="${pageContext.servletContext.contextPath }/assets/css/pager.css" rel="stylesheet" type="text/css">	
 	<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 	<script type="text/javascript">
 
@@ -15,25 +16,6 @@
 	}
 	
 	</script>
-	<style type="text/css">
-		
-		div.pager {
-			width:100%;
-			text-align:center;
-		}
-		div.pager  ul {
-			height:20px;
-			margin:10px auto;
-		}
-		div.pager  ul li 		  { display:inline-block; margin:5px 0; width:20px ; font-weight:bold; color:#ddd }
-		div.pager  ul li.selected { text-decoration: underline; color:#f40808 }
-		div.pager  ul li a,
-		div.pager  ul li a:visited,
-		div.pager  ul li a:link,
-		div.pager  ul li a:active { text-decoration: none; color:#555 }
-		div.pager  ul li a:hover { text-decoration: none; color:#f00 }
-	
-	</style>
 </head>
 <body bgcolor="white" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <div align="center">

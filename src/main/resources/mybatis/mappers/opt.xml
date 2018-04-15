@@ -32,20 +32,49 @@
 			 where no = #{no}
 		]]>
 	</update>
-	
-	
-	
-	
-	
-	<select id="getOptsList" resultType="optvo">
+
+	<insert id="insertOpts" parameterType="map">
 		<![CDATA[
-			select b.no, b.title
+			insert into opts values (null, #{title}, #{optNo})
+		]]>
+	</insert>
+
+
+
+	<select id="getOptsList" resultType="optsvo">
+		<![CDATA[
+			select b.no, b.title, a.no as optNo
 			from  opt a, opts b
 			where a.no = b.opt_no
 			and a.no = #{no}
 		]]>
 	</select>
-	
+
+
+	<delete id="deleteOpts" parameterType="long">
+		<![CDATA[
+			delete from opts
+			where no = #{no}
+		]]>
+	</delete>
+
+
+	<select id="getOpts" parameterType="map" resultType="optsvo">
+		<![CDATA[
+			select no, title
+			from opts
+			where opt_no = #{optNo}
+			  and no = #{no}
+		]]>
+	</select>
+
+	<update id="modifyOpts" parameterType="optsvo">
+		<![CDATA[
+			update opts
+			   set title = #{title}
+			 where no = #{no}
+		]]>
+	</update>
 
 
 </mapper>

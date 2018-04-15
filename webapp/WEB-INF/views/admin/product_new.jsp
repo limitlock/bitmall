@@ -42,17 +42,6 @@ $(function(){
 					return;
 				 }
 				 
-				 if($("#optNo1").val() == 0){
-					alert("'선택안함'을 선택해주세요.");
-					e.preventDefault();
-					return;
-				 }
-				 if($("#optNo2").val() == 0){
-					alert("'선택안함'을 선택해주세요.");
-					e.preventDefault();
-					return;
-				}
-				 
 				 if($("#discount").val() > 100){
 					 alert("할인률은 100%를 넘을 수 없습니다.")
 					 e.preventDefault();
@@ -117,13 +106,13 @@ $(function(){
 				<td width="100" bgcolor="#CCCCCC" align="center">옵션</td>
 				<td width="700" bgcolor="#F2F2F2">
 				<select id="optNo1" name="optNo1">
-						<c:forEach items="${option }" var="vo">
-							<option value="${vo.no }">${vo.title }</option>
+						<c:forEach items="${option }" var="vo" varStatus="index">
+							<option value="${index.count }">${vo.title }</option>
 						</c:forEach>
 				</select> &nbsp; &nbsp; 
 				<select id="optNo2" name="optNo2">
 						<c:forEach items= "${option }" var="vo">
-							<option value="${vo.no }">${vo.title }</option>
+							<option value="${index.count }">${vo.title }</option>
 						</c:forEach>
 				</select> &nbsp; &nbsp; 
 		
