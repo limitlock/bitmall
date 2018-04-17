@@ -19,7 +19,7 @@ public class AdminController {
 
 	@Autowired
 	AdminService adminService;
-
+	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String admin() {
 		return "admin/login";
@@ -28,15 +28,12 @@ public class AdminController {
 	// 관리자 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String admin(HttpSession session, @ModelAttribute AdminVo vo, Model model) {
-		System.out.println("0: " + vo);
+		
 		AdminVo authAdmin = adminService.login(vo);
-		System.out.println("1: " + authAdmin);
 		if (authAdmin == null) {
 			System.out.println("2");
 			return "admin/login";
 		}
-		// 인증
-		System.out.println("3");
 		session.setAttribute("authAdmin", authAdmin);
 		return "redirect:/ad/product?page=1";
 	}

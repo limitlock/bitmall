@@ -19,7 +19,7 @@ public class MainController {
 	@Autowired
 	private MainDao mainDao;
 
-	@RequestMapping("")
+	@RequestMapping({ "/index", "", "/" })
 	public String index(Model model) {
 
 		return "main/index";

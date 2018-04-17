@@ -11,8 +11,9 @@
 		from product
 		]]>
 	</select>
-	
-	<select id="getProductListByCategory" parameterType="map" resultType="productvo">
+
+	<select id="getProductListByCategory" parameterType="map"
+		resultType="productvo">
 		<![CDATA[
 		select no, title, price, icon, file1, discount, category_no as categoryNo
 		from product
@@ -20,9 +21,9 @@
 		limit #{page}, 15
 		]]>
 	</select>
-	
-	
-	
+
+
+
 	<select id="getMax" parameterType="long" resultType="long">
 		<![CDATA[
 			select count(no)
@@ -30,6 +31,31 @@
 			where category_no = #{no}
 		]]>
 	</select>
+
+	<select id="getProductByNo" parameterType="long" resultType="productvo">
+		<![CDATA[
+			select no, title, price, info, icon, discount, file1,file2,file3,opt_no1 as optNo1, opt_no2 as optNo2
+			from product 
+			where no = #{no}
+		]]>
+	</select>
+
+	<select id="getOpts" parameterType="map" resultType="optsvo">
+		<![CDATA[
+			select b.no as no, b.title as title, b.opt_no as optNo
+			from product a, opts b
+			where #{optNo1} = b.opt_no
+			and a.no = #{no}
+			union
+			select b.no as no, b.title as title, b.opt_no as optNo
+			from product a, opts b
+			where #{optNo2} = b.opt_no
+			and a.no = #{no}
+			;		
+		]]>
+	</select>
+
+
 
 
 </mapper>

@@ -1,0 +1,66 @@
+
+
+그림이 없습니다.  장바구니 결제까지만 구현하였고 주문조회는 미구현하였습니다. 죄송합니다.
+
+
+insert into admin values(null, '11','11');
+
+ 
+
+insert into users values(null, 'aa', '11', '에이에이', '19900504','022345678' ,'01012345678','555888','서울 광진구','aa@bitmall.com');
+insert into users values(null, 'bb', '22', '비비', '19901114','022918778' ,'01065418748','879123','서울 광진구','bb@bitmall.com');
+insert into users values(null, 'cc', '33', '시시', '19950524','022654678' ,'01022687678','444867','서울 동작구','cc@google.com');
+insert into users values(null, 'dd', '44', '디디', '19870907','0512345678' ,'01032343478','105888','부산 진구','dd@hotmail.com');
+insert into users values(null, 'ee', '55', '이이', '19780819','0522462849' ,'01044435238','561128','울산 중구','ee@bitmall.com');
+insert into users values(null, 'ff', '66', '에프에프', '19920724','023345548' ,'01062344578','357838','서울 동작구','ff@naver.com');
+insert into users values(null, 'qq', '77', '큐큐', '19930201','024445694' ,'01032645678','658485','울산 남구','qq@bitmall.com');
+
+ 
+
+insert into category values(null, '아우터');
+insert into category values(null, '상의');
+insert into category values(null, '하의');
+
+ 
+insert into opt values(null, '선택안함');
+insert into opt values(null, '사이즈');
+insert into opt values(null, '색상');
+
+ 
+insert into opts values(null, 'S', 2);
+insert into opts values(null, 'M', 2);
+insert into opts values(null, 'L', 2);
+
+ 
+insert into opts values(null, '빨강', 3);
+insert into opts values(null, '검정', 3);
+insert into opts values(null, '파랑', 3);
+
+
+
+insert into product values(null, 2,'T1', '빗츠 라운드 티셔츠', '모던이프',
+
+							'19,000', 2,1 ,'티셔츠', '1', '1', 0, '','','', now());
+
+
+insert into product values(null, 2,'T2', '킨포크 티셔츠', '모던이프',
+
+							'16,000', 2,1 ,'티셔츠1입니다.', '1', '1', 0, '','','', now());
+
+                            
+insert into product values(null, 2,'T3', 'LA 자수 맨투맨', '모던이프',
+
+							'26,000', 3,1 ,'맨투맨1입니다', '1', '2,3', 20, '','','', now());
+
+                            
+insert into product values(null, 1,'O2', '러밋 스프링 코트', '모던이프',
+
+							'109,000', 3,1 ,'아우터 트렌치코트2입니다', '1', '1,2', 0, '','','', now());
+                            
+insert into product values(null, 1,'O1', '셀로 코튼 자켓', '모던이프',
+
+							'68,000', 3,1 ,'아우터 트렌치코트1입니다', '1', '1,2', 0, '','','', now());
+                            
+insert into product values(null, 3,'B1', '메츠 데님 팬츠', '모던이프',
+
+							'42,000', 3,1 ,'청바지1입니다', '1', '1,2', 0, '','','', now());

@@ -55,10 +55,18 @@
 		</mvc:interceptor>
  
 		<mvc:interceptor>
-			<mvc:mapping path="/ad/**" />
+			<mvc:mapping path="/cart/**" />
+			<mvc:mapping path="/jumun/**" />
+			<mvc:mapping path="/order/**" />
 			<mvc:exclude-mapping path="/assets/**" />
 			<bean class="com.cafe24.security.AuthInterceptor" />
-		</mvc:interceptor> 
+		</mvc:interceptor>
+		
+			<mvc:interceptor>
+			<mvc:mapping path="/ad/**" />
+			<mvc:exclude-mapping path="/assets/**" />
+			<bean class="com.cafe24.security.AuthAdminInterceptor" />
+		</mvc:interceptor>  
 
 	</mvc:interceptors>
 

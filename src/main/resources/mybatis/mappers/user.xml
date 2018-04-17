@@ -178,6 +178,14 @@
 		where no = #{no}
 		]]>
 	</delete>
+	
+	<select id="getUserAddress" parameterType="long" resultType="uservo">
+		<![CDATA[
+		select name, tel, phone, email, zip, address
+		from users
+		where no = #{no}
+		]]>
+	</select>
 
 
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="order">
+
+	<insert id="insert" parameterType="ordervo">
+	<![CDATA[	
+		insert into order_info
+		values (null, #{orderNo}, #{name}, #{tel}, #{phone}, #{email}, #{address}, #{req}, #{userNo}, now(),
+				1, #{payMethod},#{cardKind},
+				#{cardNo}, #{cardDate}, #{cardPw}, #{cardHalbu}, #{bankKind}, #{bankSender})
+	]]>
+	</insert>
+
+	<insert id="insertOrderProductList" parameterType="cartvo">
+	<![CDATA[	
+		insert into order_product
+		values (null, #{userNo}, #{optNo1}, #{optNo2}, #{num}, #{price}, #{result_price},
+				#{productTitle}, #{productNo}, #{file1}, #{orderNo})
+	
+	
+	]]>
+	</insert>
+	
+	<select id="getOrderNo" parameterType="String" resultType="long">
+	<![CDATA[	
+		select no
+		from order_info
+		where order_no = #{orderNo}
+	]]>
+	</select>
+
+
+
+
+</mapper>

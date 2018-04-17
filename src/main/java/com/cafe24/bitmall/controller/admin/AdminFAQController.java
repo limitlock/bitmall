@@ -19,7 +19,7 @@ public class AdminFAQController {
 	@Autowired
 	private AdminFAQService adminfaqService;
 
-	@Auth
+	@Auth(role = Auth.Role.ADMIN)
 	@RequestMapping(value = "/faq", method = RequestMethod.GET)
 	public String faq(Model model) {
 
@@ -28,20 +28,20 @@ public class AdminFAQController {
 		return "admin/faq";
 	}
 
-	@Auth
+	@Auth(role = Auth.Role.ADMIN)
 	@RequestMapping(value = "/faq_new", method = RequestMethod.GET)
 	public String faqNew() {
 		return "admin/faq_new";
 	}
 
-	@Auth
+	@Auth(role = Auth.Role.ADMIN)
 	@RequestMapping(value = "/faq_new", method = RequestMethod.POST)
 	public String faqNew(@ModelAttribute FAQVo vo) {
 		adminfaqService.insert(vo);
 		return "redirect:/ad/faq";
 	}
 
-	@Auth
+	@Auth(role = Auth.Role.ADMIN)
 	@RequestMapping(value = "/faq_edit", method = RequestMethod.GET)
 	public String faqEdit(@RequestParam("no") Long no, Model model) {
 		adminfaqService.getFAQ(no, model);
@@ -49,7 +49,7 @@ public class AdminFAQController {
 		return "/admin/faq_edit";
 	}
 
-	@Auth
+	@Auth(role = Auth.Role.ADMIN)
 	@RequestMapping(value = "/faq_edit", method = RequestMethod.POST)
 	public String faqEdit(@ModelAttribute FAQVo vo) {
 
@@ -57,7 +57,7 @@ public class AdminFAQController {
 		return "redirect:/ad/faq";
 	}
 
-	@Auth
+	@Auth(role = Auth.Role.ADMIN)
 	@RequestMapping(value = "/faq_delete", method = RequestMethod.GET)
 	public String faqDelete(@RequestParam("no") Long no) {
 

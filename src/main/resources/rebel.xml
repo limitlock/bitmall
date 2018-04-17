@@ -9,6 +9,8 @@
 	<classpath>
 		<dir name="C:/Users/BIT/git/bitmall/target/classes">
 		</dir>
+		<dir name="C:/Users/BIT/git/bitmall/target/test-classes">
+		</dir>
 	</classpath>
 
 	<web>
