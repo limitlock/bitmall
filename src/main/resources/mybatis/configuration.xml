@@ -12,7 +12,7 @@
 		<typeAlias alias="cartvo" type="com.cafe24.bitmall.vo.CartVo" />
 		<typeAlias alias="ordervo" type="com.cafe24.bitmall.vo.OrderVo" />
 		<typeAlias alias="orderproductvo" type="com.cafe24.bitmall.vo.OrderProductVo" />
-		<typeAlias alias="jumun" type="com.cafe24.bitmall.vo.JumunVo" />
+		<typeAlias alias="jumunvo" type="com.cafe24.bitmall.vo.JumunVo" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />

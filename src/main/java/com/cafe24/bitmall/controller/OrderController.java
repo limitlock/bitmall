@@ -67,8 +67,10 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = "/order_ok", method = RequestMethod.POST)
-	public String orderOk(@ModelAttribute OrderVo vo, Model model, @RequestParam("userNo") Long userNo,
+	public String orderOk(@ModelAttribute OrderVo vo, @ModelAttribute CartVo cvo, Model model,
+			@RequestParam("userNo") Long userNo,
 			@RequestParam(value = "flag", required = true, defaultValue = "0") Long flag) {
+
 		String orderNo = genSaveFilename();
 
 		vo.setOrderNo(orderNo);
@@ -79,11 +81,10 @@ public class OrderController {
 		Long orderByNo = orderDao.getNo(orderNo);
 
 		if (flag == 1) { // 바로구매
-			//파라미터 값을 어떻게?
-			//orderDao.insertOrderProductList( );
-			
-			
-			
+			cvo.setOrderNo(orderByNo);
+			orderDao.insertJustOrderProduct(cvo);
+			System.out.println(cvo);
+
 		} else {
 			// 주문된 장바구니
 			List<CartVo> list = orderDao.getCartProductList(userNo);

@@ -3,15 +3,123 @@
 
 
 <mapper namespace="jumun">
-	<select id="getJumunList" parameterType="long">
+	<select id="getJumunList" parameterType="long" resultType="jumunvo">
 		<![CDATA[
-		
-		
-		
-		
+		select a.reg_date as regDate, b.product_title as productTitle, a.order_no as orderNo, a.status_no as statusNo, sum(b.result_price+2500) as price,count(b.product_title) as count
+		from order_info a, order_product b
+		where a.no = b.order_info_no
+		and a.user_no = #{userNo}
+		group by b.order_info_no;
 		]]>
 	</select>
 
+	<select id="getOrderInfo" parameterType="long" resultType="ordervo">
+		<![CDATA[
+			select  order_no as orderNo,
+					name,
+					
+					ifnull(case char_length(phone) 
+												when '11' 
+								                then concat(left(phone,3),'-',substring(phone,4,4),'-',right(phone,4)) 
+								                when '10'
+								                then concat(left(phone,3),'-',substring(phone,4,3),'-',right(phone,4)) 
+							                end,'존재하지않는 형식') as phone,
+							                
+							        ifnull(case left(tel,2)
+											when '02' then
+												case char_length(tel)
+													when '10' 
+													then concat('02','-',substring(tel,3,4),'-',right(phone,4)) 
+													when '9'
+													then concat('02','-',substring(tel,3,3),'-',right(phone,4)) 
+												end
+											else
+												case char_length(tel)
+													when '11' 
+													then concat(left(tel,3),'-',substring(tel,4,4),'-',right(tel,4)) 
+													when '10'
+													then concat(left(tel,3),'-',substring(tel,4,3),'-',right(tel,4)) 
+													when '8'
+							                        then concat(left(tel,4),'-',substring(tel,4,4))
+												end
+											end, '존재하지않는 형식') as tel,
+					email,
+					address,
+					req,
+					user_no as userNo,
+					status_no as statusNo,
+					pay_method as payMethod,
+					card_kind as cardKind,
+					card_no as cardNo,
+					card_date as cardDate,
+					card_pw as cardPw,
+					card_halbu as cardHalbu,
+					bank_kind as bankKind,
+					bank_sender as bankSender
+			from order_info
+			where order_no = #{orderNo};
+		]]>
+	</select>
+	
+	
+	<select id="getSender" parameterType="long" resultType="uservo">
+		<![CDATA[
+			select name , email,ifnull(case char_length(phone) 
+												when '11' 
+								                then concat(left(phone,3),'-',substring(phone,4,4),'-',right(phone,4)) 
+								                when '10'
+								                then concat(left(phone,3),'-',substring(phone,4,3),'-',right(phone,4)) 
+							                end,'존재하지않는 형식') as phone,
+							                
+							        ifnull(case left(tel,2)
+											when '02' then
+												case char_length(tel)
+													when '10' 
+													then concat('02','-',substring(tel,3,4),'-',right(phone,4)) 
+													when '9'
+													then concat('02','-',substring(tel,3,3),'-',right(phone,4)) 
+												end
+											else
+												case char_length(tel)
+													when '11' 
+													then concat(left(tel,3),'-',substring(tel,4,4),'-',right(tel,4)) 
+													when '10'
+													then concat(left(tel,3),'-',substring(tel,4,3),'-',right(tel,4)) 
+													when '8'
+							                        then concat(left(tel,4),'-',substring(tel,4,4))
+												end
+											end, '존재하지않는 형식') as tel
+			from users
+			where no = #{no}
+		]]>
+	</select>
+	
+	<select id="getNo" parameterType="long" resultType="long">
+		<![CDATA[
+				select no
+				from order_info
+				where order_no = #{no}
+		]]>
+	</select>
+	
+	
+	<select id="getProductList" parameterType="long" resultType="orderproductvo">
+	<![CDATA[	
+			select user_no as userNo, opt_no1 as optNo1, opt_no2 as optNo2, num, price, result_price, product_title as productTitle ,product_no as productNo,file1
+			from order_product
+			where order_info_no = #{no};
+	]]>
+	</select>
+	
+	
+	<select id="getPrice"  parameterType="long" resultType="long">
+	<![CDATA[	
+			select sum(result_price) +2500
+			from order_product
+			where order_info_no = #{no}
+		
+	]]>
+	</select>
 
 
 

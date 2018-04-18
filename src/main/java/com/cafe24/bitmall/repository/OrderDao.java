@@ -56,4 +56,9 @@ public class OrderDao {
 	public Long getNo(String orderNo) {
 		return sqlSession.selectOne("order.getOrderNo",orderNo);
 	}
+
+	public void insertJustOrderProduct(CartVo cvo) {
+		sqlSession.insert("order.insertOrderProductList", cvo);
+		
+	}
 }

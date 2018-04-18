@@ -7,11 +7,8 @@
 <head>
 <title>비트닷컴 쇼핑몰</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<link
-	href="${pageContext.servletContext.contextPath }/assets/css/font.css"
-	rel="stylesheet" type="text/css">
-<script type="text/javascript"
-	src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
+<link href="${pageContext.servletContext.contextPath }/assets/css/font.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.9.0.js"></script>
 <script type="text/javascript">
 	function getOrder(){
 		
@@ -88,7 +85,8 @@
 					$("#total_price").html(innerTotalPriceHTML);
 					
 					
-					/* var post = 
+					var post = 
+						'<input type="hidden" name="userNo" value="${authUser.no}">'+
 						'<input type="hidden" name="no" value="">'+
 						'<input type="hidden" name="userNo" value="">'+
 						'<input type="hidden" name="optNo1" value="'+list.optNo1+'">'+
@@ -104,7 +102,7 @@
 					
 					
 					console.log(post);
-					$("#post").html(post);  */
+					$("#post").html(post);  
 						
 			},error: function(xhr, status, e){
 				console.error(e);
@@ -368,15 +366,15 @@
 					</table>
 
 
-					<input type="hidden" name="flag" value="${param.flag }"> <input
-						type="hidden" name="userNo" value="${authUser.no }"> <input
-						type="hidden" name="name" value="${vo.name }"> <input
-						type="hidden" name="tel" value="${vo.tel }"> <input
-						type="hidden" name="phone" value="${vo.phone }"> <input
-						type="hidden" name="email" value="${vo.email }"> <input
-						type="hidden" name="zip" value="${vo.zip }"> <input
-						type="hidden" name="address" value="${vo.address }"> <input
-						type="hidden" name="req" value="${vo.req }">
+					<input type="hidden" name="flag" value="${param.flag }"> 
+					<input type="hidden" name="userNo" value="${authUser.no }"> 
+					<input type="hidden" name="name" value="${vo.name }"> 
+					<input type="hidden" name="tel" value="${vo.tel }"> 
+					<input type="hidden" name="phone" value="${vo.phone }"> 
+					<input type="hidden" name="email" value="${vo.email }"> 
+					<input type="hidden" name="zip" value="${vo.zip }"> 
+					<input type="hidden" name="address" value="${vo.address }"> 
+					<input type="hidden" name="req" value="${vo.req }">
 
 
 					<!-- 결재방법 선택 및 입력 -->

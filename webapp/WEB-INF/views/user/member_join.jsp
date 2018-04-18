@@ -118,7 +118,7 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>아이디</b></font>
 											</td>
 											<td>
-												<input type="text" id="id" name="id" maxlength = "12" value="wzm2" size="20" class="cmfont1"> 
+												<input type="text" id="id" name="id" maxlength = "12" value="" size="20" class="cmfont1"> 
 												<a href="#" id="btn-check-id"><img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/b_idcheck.gif" border="0"></a>
 											</td>
 										</tr>
@@ -148,7 +148,7 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>이 름</b></font>
 											</td>
 											<td>
-												<input type="text" name="name" maxlength = "10" value = "나정민" size="20" class="cmfont1">
+												<input type="text" name="name" maxlength = "10" value = "" size="20" class="cmfont1">
 											</td>
 										</tr>
 										<tr>
@@ -156,9 +156,9 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>생년월일</b></font>
 											</td>
 											<td>
-												<input type="text" id="birthday1" name='birthday1' size = "4" maxlength = "4" value = "1987" class="cmfont1"> <font color="898989">년</font> 
-												<input type="text" id="birthday2" name='birthday2' size = "2" maxlength = "2" value = "12" class="cmfont1"> <font color="898989">월</font> 
-												<input type="text" id="birthday3" name='birthday3' size = "2" maxlength = "2" value = "22" class="cmfont1"> <font color="898989">일</font> 
+												<input type="text" id="birthday1" name='birthday1' size = "4" maxlength = "4" value = "" class="cmfont1"> <font color="898989">년</font> 
+												<input type="text" id="birthday2" name='birthday2' size = "2" maxlength = "2" value = "" class="cmfont1"> <font color="898989">월</font> 
+												<input type="text" id="birthday3" name='birthday3' size = "2" maxlength = "2" value = "" class="cmfont1"> <font color="898989">일</font> 
 												<input type="hidden" id="birthday" name="birthday" value=""/>
 												<!-- <input type="radio" name='sm' value = "1" checked> <font color="898989">양력</font> 
 												<input type="radio" name='sm' value = "2" > <font color="898989">음력</font></td> -->
@@ -174,9 +174,9 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>전화 번호</b></font>
 											</td>
 											<td>
-												<input type="text" id="tel1" name='tel1' size = "4" maxlength = "4" value = "010" class="cmfont1"><font color="898989">-</font>
-												<input type="text" id="tel2" name='tel2' size = "4" maxlength = "4" value = "2571" class="cmfont1"><font color="898989">-</font>
-												<input type="text" id="tel3" name='tel3' size = "4" maxlength = "4" value = "5528" class="cmfont1">
+												<input type="text" id="tel1" name='tel1' size = "4" maxlength = "4" value = "" class="cmfont1"><font color="898989">-</font>
+												<input type="text" id="tel2" name='tel2' size = "4" maxlength = "4" value = "" class="cmfont1"><font color="898989">-</font>
+												<input type="text" id="tel3" name='tel3' size = "4" maxlength = "4" value = "" class="cmfont1">
 												<input type="hidden" id="tel" name="tel" value=""/>
 											</td>
 										</tr>
@@ -185,9 +185,9 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>핸드폰 번호</b></font>
 											</td>
 											<td>
-												<input type="text" id="phone1" name='phone1' size = "4" maxlength = "4" value = "010" class="cmfont1"><font color="898989">-</font>
-												<input type="text" id="phone2" name='phone2' size = "4" maxlength = "4" value = "2571" class="cmfont1"><font color="898989">-</font>
-												<input type="text" id="phone3" name='phone3' size = "4" maxlength = "4" value = "5528" class="cmfont1">
+												<input type="text" id="phone1" name='phone1' size = "4" maxlength = "4" value = "" class="cmfont1"><font color="898989">-</font>
+												<input type="text" id="phone2" name='phone2' size = "4" maxlength = "4" value = "" class="cmfont1"><font color="898989">-</font>
+												<input type="text" id="phone3" name='phone3' size = "4" maxlength = "4" value = "" class="cmfont1">
 												<input type="hidden" id="phone" name="phone" value=""/>
 											</td>
 										</tr>
@@ -196,11 +196,11 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>주 소</b></font>
 											</td>
 											<td>
-												<input type="text" id="zip1" name='zip1' size = "4" maxlength = "3" value = "762" class="cmfont1"><font color="898989">-</font>
-												<input type="text" id="zip2" name='zip2' size = "4" maxlength = "3" value = "634" class="cmfont1"> 
+												<input type="text" id="zip1" name='zip1' size = "4" maxlength = "3" value = "" class="cmfont1"><font color="898989">-</font>
+												<input type="text" id="zip2" name='zip2' size = "4" maxlength = "3" value = "" class="cmfont1"> 
 												<input type="hidden" id="zip" name="zip" value=""/>
 												<a href="#" id="find-zip"><img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/b_zip.gif" border="0"></a><br>
-												<input type="text" name='address' size = "50" maxlength = "200" value = "경기도 안양" class="cmfont1"><br>
+												<input type="text" name='address' size = "50" maxlength = "200" value = "" class="cmfont1"><br>
 											</td>
 										</tr>
 										<tr>
@@ -208,7 +208,7 @@
 												<img align="absmiddle" src="${pageContext.servletContext.contextPath }/assets/images/i_dot.gif" border="0"> <font color="898989"><b>E-Mail</b></font>
 											</td>
 											<td>
-												<input type="text" name='email' size = "50" maxlength = "50" value = "wzm2@naver.com" class="cmfont1">
+												<input type="text" name='email' size = "50" maxlength = "50" value = "" class="cmfont1">
 											</td>
 										</tr>
 									</table>

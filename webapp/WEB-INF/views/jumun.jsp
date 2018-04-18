@@ -49,65 +49,51 @@
 				</tr>
 				<tr><td colspan="5" bgcolor="DEDCDD"></td></tr>
 
-				<tr>
-					<td height="30" align="center"><font color="686868">2007-01-02</font></td>
-					<td align="center">
-						<a href="jumun_info"><font color="#0066CC">200701020001</font></a>
-					</td>
-					<td><font color="686868">파란 브라우스 (외 2)</font></td>
-					<td align="right"><font color="686868">20,000 원</font></td>
-					<td align="center"><font color="#0066CC">주문신청</font></td>
-				</tr>
-				<tr><td colspan="5" background="${pageContext.servletContext.contextPath }/assets/images/line_dot.gif"></td></tr>
+				<c:forEach items="${list }" var="vo">
+					<tr>
+						<td height="30" align="center"><font color="686868">2007-01-02</font></td>
+						<td align="center">
+							<a href="jumun_info?orderNo=${vo.orderNo }"><font color="#0066CC">${vo.orderNo }</font></a>
+						</td>
+						<c:choose>
+						<c:when test="${vo.count > 1 }">
+						<td align="right"><font color="686868">${vo.productTitle } (외 ${vo.count -1 })</font></td>					
+						</c:when>
+						<c:otherwise>
+						<td align="right"><font color="686868">${vo.productTitle }</font></td>
+						</c:otherwise>
+						</c:choose>
+						
+						<td align="right"><font color="686868"><fmt:formatNumber value="${vo.price }" pattern="#,###" /> 원</font></td>
+						<c:choose>
+			    			<c:when test="${vo.statusNo == 1 }">
+				    			<td align="center"><font color="#0066CC">주문신청</font></td>
+			    			</c:when>
+			    			<c:when test="${vo.statusNo == 2 }">
+				    			<td align="center"><font color="#0066CC">주문확인</font></td>
+			    			</c:when>
+			    			<c:when test="${vo.statusNo == 3 }">
+				    			<td align="center"><font color="#0066CC">입금확인</font></td>
+			    			</c:when>
+			    			<c:when test="${vo.statusNo == 4 }">
+			    				<td align="center"><font color="#0066CC">배송중</font></td>
+			    			</c:when>
+			    			<c:when test="${vo.statusNo == 5 }">
+			    				<td align="center"><font color="#686868">주문완료</font></td>
+			    			</c:when>
+			    			<c:otherwise>
+			    				<td align="center"><font color="#D06404">주문취소</font></td>
+			    			</c:otherwise>
+			    		</c:choose>
+						
+					</tr>
+					<tr><td colspan="5" background="${pageContext.servletContext.contextPath }/assets/images/line_dot.gif"></td></tr>
+				</c:forEach>
+				
 
-				<tr>
-					<td height="30" align="center"><font color="686868">2007-01-01</font></td>
-					<td align="center">
-						<a href="jumun_info.jsp?no=10&page=1"><font color="#0066CC">200701010011</font></a>
-					</td>
-					<td><font color="686868">하얀 브라우스 (외 1)</font></td>
-					<td align="right"><font color="686868">30,000 원</font></td>
-					<td align="center"><font color="#0066CC">배송중</font></td>
-				</tr>
-				<tr><td colspan="5" background="${pageContext.servletContext.contextPath }/assets/images/line_dot.gif"></td></tr>
-
-				<tr>
-					<td height="30" align="center"><font color="686868">2007-01-01</font></td>
-					<td align="center">
-						<a href="jumun_info.jsp?no=4&page=1"><font color="#0066CC">200701010005</font></a>
-					</td>
-					<td><font color="686868">파란 브라우스 (외 1)</font></td>
-					<td align="right"><font color="686868">30,000 원</font></td>
-					<td align="center"><font color="#D06404">주문취소</font></td>
-				</tr>
-				<tr><td colspan="5" background="${pageContext.servletContext.contextPath }/assets/images/line_dot.gif"></td></tr>
-
-				<tr>
-					<td height="30" align="center"><font color="686868">2007-01-01</font></td>
-					<td align="center">
-						<a href="jumun_info.jsp?no=1&page=1"><font color="#0066CC">200701010001</font></a>
-					</td>
-					<td><font color="686868">실크 브라우스</font></td>
-					<td align="right"><font color="686868">30,000 원</font></td>
-					<td align="center"><font color="#686868">주문완료</font></td>
-				</tr>
-				<tr><td colspan="5" background="${pageContext.servletContext.contextPath }/assets/images/line_dot.gif"></td></tr>
-
-				<tr><td colspan="5" height="2" bgcolor="#0066CC"></td></tr>
 			</table>
 			<br>
-			<table border="0" cellpadding="0" cellspacing="0" width="690">
-				<tr>
-					<td height="30" class="cmfont" align="center">
-						<img src="${pageContext.servletContext.contextPath }/assets/images/i_prev.gif" align="absmiddle" border="0"> 
-						<font color="#FC0504"><b>1</b></font>&nbsp;
-						<a href="jumun.jsp?page=2"><font color="#7C7A77">[2]</font></a>&nbsp;
-						<a href="jumun.jsp?page=3"><font color="#7C7A77">[3]</font></a>&nbsp;
-						<img src="${pageContext.servletContext.contextPath }/assets/images/i_next.gif" align="absmiddle" border="0">
-					</td>
-				</tr>
-			</table>
-
+		
 <!-------------------------------------------------------------------------------------------->	
 <!-- 끝 : 다른 웹페이지 삽입할 부분                                                         -->
 <!-------------------------------------------------------------------------------------------->	
